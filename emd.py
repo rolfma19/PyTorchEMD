@@ -21,12 +21,12 @@ class EarthMoverDistanceFunction(torch.autograd.Function):
         return grad_xyz1, grad_xyz2
 
 
-def earth_mover_distance(xyz1, xyz2, transpose=True):
+def earth_mover_distance(xyz1, xyz2, transpose=False):
     """Earth Mover Distance (Approx)
 
     Args:
-        xyz1 (torch.Tensor): (b, 3, n1)
-        xyz2 (torch.Tensor): (b, 3, n1)
+        xyz1 (torch.Tensor): (b, n1, 3)
+        xyz2 (torch.Tensor): (b, n1, 3)
         transpose (bool): whether to transpose inputs as it might be BCN format.
             Extensions only support BNC format.
 
